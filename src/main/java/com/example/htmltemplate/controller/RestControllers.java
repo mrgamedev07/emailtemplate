@@ -324,8 +324,9 @@ public class RestControllers {
 	    			+ "    }\r\n"
 	    			+ "}";
 		  madelMap.put("summary",convertJsontoSummary(jsonString));
-		  madelMap.put("datasync",convertJsontodataSync(jsonString));
-		  madelMap.put("datacompare", convertJsontodataCompare(jsonString));
+		  madelMap.put("datasync",convertJsontodata(jsonString,"dataSync"));
+		  madelMap.put("datacompare", convertJsontodata(jsonString,"dataCompare"));
+		  madelMap.put("apiCompare", convertJsontodata(jsonString,"apiCompare"));
 		  Template t = config.getTemplate("sample.ftl");   
 	         String html = FreeMarkerTemplateUtils.processTemplateIntoString(t, madelMap);  
 		return html;
@@ -364,19 +365,12 @@ public class RestControllers {
 	    }
 	
 
-	  public List<Object> convertJsontodataSync(String jsonString){
+	  public List<Object> convertJsontodata(String jsonString,String convertValue){
 	    	JSONObject jsonObject = new JSONObject(jsonString);
-	    	JSONArray dataObject =jsonObject.getJSONObject("data").getJSONArray("dataSync");
+	    	JSONArray dataObject =jsonObject.getJSONObject("data").getJSONArray(convertValue);
 	    
 	    	return dataObject.toList();
 	 
 	    }
 	  
-	  public List<Object> convertJsontodataCompare(String jsonString){
-	    	JSONObject jsonObject = new JSONObject(jsonString);
-	    	JSONArray dataObject =jsonObject.getJSONObject("data").getJSONArray("dataCompare");
-	    
-	    	return dataObject.toList();
-	 
-	    }
 }

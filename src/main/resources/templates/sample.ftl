@@ -99,7 +99,7 @@
                             </div>
                             <div style="font-size: 24px; 
                             margin-top: 20px;">
-                                <b>DATA SYNC</b><br /><br />
+                                <b>DATA COMPARE</b><br /><br />
                             </div>
                             <div style="text-align:left">
                                 <table style="background-color: black;">
@@ -118,6 +118,30 @@
 
                                         </tr>
                                     </#list>
+                                </table>
+                            </div>
+                            <div style="font-size: 24px; 
+                            margin-top: 20px;">
+                                <b>API COMPARE</b><br /><br />
+                            </div>
+                            <div style="text-align:left">
+                                <table style="background-color: black;">
+                                    <tr style="background-color: #3a80e2f9;">
+                                        <th>Flow Types</th>
+                                        <th>API TYPE</th>
+                                        <th>SUCCESS</th>
+                                        <th>FAILURE</th>
+                                    </tr>
+                                    <#list apiCompare as item>
+                                        <tr style="background-color: #ffffff;">
+                                            <td>${item.Flow_Type}</td>
+                                            <td>${item.api_type}</td>
+                                            <td>${item.success}</td>
+                                            <td>${item.failed}</td>
+
+                                        </tr>
+                                    </#list>
+                                </table>
                             </div>
                         </td>
                     </tr>
