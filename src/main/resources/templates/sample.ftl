@@ -57,13 +57,15 @@
 
                                     <#list summary as item>
                                         <tr style="background-color: #ffffff;">
-                                            <td>${item.ordersCount}</td>
-                                            <td>${item.type}</td>
-                                            <td>${item.datasync_success}</td>
-                                            <td>${item.datasync_failure}</td>
-                                            <td>${item.datasync_inprocessing}</td>
-                                            <td>${item.datacompare_success}</td>
-                                            <td>${item.datacompare_failure}</td>
+
+                                            <td>${(item.ordersCount)!"-"}</td>
+
+                                            <td>${(item.type)!"-"}</td>
+                                            <td>${(item.datasync_success)!"-"}</td>
+                                            <td>${(item.datasync_failure)!"-"}</td>
+                                            <td>${(item.datasync_inprocessing)!"-"}</td>
+                                            <td>${(item.datacompare_success)!"-"}</td>
+                                            <td>${(item.datacompare_failure)!"-"}</td>
                                             <td>0</td>
                                             <td>0</td>
                                         </tr>
@@ -99,11 +101,11 @@
                                     </tr>
                                     <#list datasync as item>
                                         <tr style="background-color: #ffffff;">
-                                            <td>${item.Flow_Type}</td>
-                                            <td>${item.type_def_name}</td>
-                                            <td>${item.success}</td>
-                                            <td>${item.failure}</td>
-                                            <td>${item.in_processing}</td>
+                                            <td>${(item.Flow_Type)!"test"}</td>
+                                            <td>${(item.type_def_name)!"-"}</td>
+                                            <td>${(item.success)!"-"}</td>
+                                            <td>${(item.failure)!"-"}</td>
+                                            <td>${(item.in_processing)!"-"}</td>
                                         </tr>
                                         <#else>
                                             <tr style="background-color: #ffffff;">
@@ -131,10 +133,10 @@
                                     </tr>
                                     <#list datacompare as item>
                                         <tr style="background-color: #ffffff;">
-                                            <td>${item.Flow_Type}</td>
-                                            <td>${item.milestones}</td>
-                                            <td>${item.success}</td>
-                                            <td>${item.failure}</td>
+                                            <td>${(item.Flow_Type)!"-"}</td>
+                                            <td>${(item.milestones)!"-"}</td>
+                                            <td>${(item.success)!"-"}</td>
+                                            <td>${(item.failure)!"-"}</td>
 
                                         </tr>
                                         <#else>
@@ -163,10 +165,10 @@
                                     </tr>
                                     <#list apiCompare as item>
                                         <tr style="background-color: #ffffff;">
-                                            <td>${item.Flow_Type}</td>
-                                            <td>${item.api_type}</td>
-                                            <td>${item.success}</td>
-                                            <td>${item.failed}</td>
+                                            <td>${(item.Flow_Type)!"-"}</td>
+                                            <td>${(item.api_type)!"-"}</td>
+                                            <td>${(item.success)!"-"}</td>
+                                            <td>${(item.failed)!"-"}</td>
 
                                         </tr>
                                         <#else>

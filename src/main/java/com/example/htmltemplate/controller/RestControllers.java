@@ -34,21 +34,57 @@ public class RestControllers {
 		  		+ "    \"data\": {\r\n"
 		  		+ "        \"summary\": {\r\n"
 		  		+ "            \"orderAndType\": [\r\n"
-		  		+ "               \r\n"
+		  		+ "                {\r\n"
+		  		+ "                     \"ordersCount\": null,\r\n"
+		  		+ "                    \"type\": \"5g\"\r\n"
+		  		+ "                },\r\n"
+		  		+ "                {\r\n"
+		  		+ "                    \"ordersCount\": 4,\r\n"
+		  		+ "                    \"type\": \"TradeIn\"\r\n"
+		  		+ "                }\r\n"
 		  		+ "            ],\r\n"
 		  		+ "            \"datasync\": [\r\n"
-		  		+ "                \r\n"
+		  		+ "                {\r\n"
+		  		+ "                    \"success\": 21,\r\n"
+		  		+ "                    \"failure\": 5,\r\n"
+		  		+ "                    \"inprocessing\": 0,\r\n"
+		  		+ "                    \"type\": \"TradeIn\"\r\n"
+		  		+ "                },\r\n"
+		  		+ "                {\r\n"
+		  		+ "                    \"success\": 43,\r\n"
+		  		+ "                    \"failure\": 2,\r\n"
+		  		+ "                    \"inprocessing\": 0,\r\n"
+		  		+ "                    \"type\": \"5g\"\r\n"
+		  		+ "                }\r\n"
 		  		+ "            ],\r\n"
 		  		+ "            \"datacompare\": [\r\n"
-		  		+ "                \r\n"
+		  		+ "                {\r\n"
+		  		+ "                    \"success\": 0,\r\n"
+		  		+ "                    \"failure\": 3,\r\n"
+		  		+ "                    \"type\": \"TradeIn\"\r\n"
+		  		+ "                },\r\n"
+		  		+ "                {\r\n"
+		  		+ "                    \"success\": 1,\r\n"
+		  		+ "                    \"failure\": 4,\r\n"
+		  		+ "                    \"type\": \"5g\"\r\n"
+		  		+ "                }\r\n"
 		  		+ "            ],\r\n"
 		  		+ "            \"apicompare\": [\r\n"
-		  		+ "                \r\n"
+		  		+ "                {\r\n"
+		  		+ "                    \"success\": 0,\r\n"
+		  		+ "                    \"failure\": 2,\r\n"
+		  		+ "                    \"type\": \"TradeIn\"\r\n"
+		  		+ "                },\r\n"
+		  		+ "                {\r\n"
+		  		+ "                    \"success\": 0,\r\n"
+		  		+ "                    \"failure\": 6,\r\n"
+		  		+ "                    \"type\": \"5g\"\r\n"
+		  		+ "                }\r\n"
 		  		+ "            ]\r\n"
 		  		+ "        },\r\n"
 		  		+ "        \"dataSync\": [\r\n"
 		  		+ "            {\r\n"
-		  		+ "                \"Flow_Type\": \"5g\",\r\n"
+		  		+ "               \r\n"
 		  		+ "                \"type_def_name\": \"DMS_EnforceCallBackInsert\",\r\n"
 		  		+ "                \"success\": 3,\r\n"
 		  		+ "                \"failure\": 0,\r\n"
@@ -303,6 +339,7 @@ public class RestControllers {
 	    	JSONArray orderAndTypeArr= dataObject.getJSONArray("orderAndType");
 	    	JSONArray datasyncArr= dataObject.getJSONArray("datasync");
 	    	JSONArray datacompareArr= dataObject.getJSONArray("datacompare");
+	    	JSONArray finalJson=new JSONArray();
 	    	List<Object> rootList=new ArrayList<>();
 	    	for(int i=0;i<orderAndTypeArr.length();i++) {
 	    		JSONObject mergedObj = new JSONObject();
@@ -322,9 +359,10 @@ public class RestControllers {
 	        	    tmp_key = (String) i3.next();
 	        	    mergedObj.put("datacompare_"+tmp_key, datacompareArr.getJSONObject(i).get(tmp_key));
 	        	}
-	        	rootList.add(mergedObj);
+	        	finalJson.put(mergedObj);
+	        	
 	    	} 	
-	    	return rootList;
+	    	return finalJson.toList();
 	 
 	    }
 	
