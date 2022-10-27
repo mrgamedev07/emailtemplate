@@ -54,6 +54,7 @@
                                         <th>SUCCESS</th>
                                         <th>FAILURE</th>
                                     </tr>
+
                                     <#list summary as item>
                                         <tr style="background-color: #ffffff;">
                                             <td>${item.ordersCount}</td>
@@ -66,7 +67,18 @@
                                             <td>0</td>
                                             <td>0</td>
                                         </tr>
-
+                                        <#else>
+                                            <tr style="background-color: #ffffff;">
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                            </tr>
                                     </#list>
 
                                 </table>
@@ -93,6 +105,14 @@
                                             <td>${item.failure}</td>
                                             <td>${item.in_processing}</td>
                                         </tr>
+                                        <#else>
+                                            <tr style="background-color: #ffffff;">
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                            </tr>
                                     </#list>
 
                                 </table>
@@ -117,6 +137,15 @@
                                             <td>${item.failure}</td>
 
                                         </tr>
+                                        <#else>
+                                            <tr style="background-color: #ffffff;">
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+
+                                            </tr>
+
                                     </#list>
                                 </table>
                             </div>
@@ -140,6 +169,14 @@
                                             <td>${item.failed}</td>
 
                                         </tr>
+                                        <#else>
+                                            <tr style="background-color: #ffffff;">
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+
+                                            </tr>
                                     </#list>
                                 </table>
                             </div>
